@@ -73,3 +73,41 @@ main{background:#f8f9f6}
   .task{background:#fff}
   .list-toolbar{border-bottom-color:#d4ddd3}
 }
+
+/* Make the workspace and its white task surfaces visibly distinct. */
+:root{background:#e8edf2}
+body{background:#e8edf2}
+.sidebar{background:#dce5dc;border-right:1px solid #c8d3c8}
+main{background:#edf1f5}
+.topbar{background:#fff;border-bottom:1px solid #d5dde5}
+.content{max-width:1120px}
+.overview{background:#e1ecd9;border-color:#c8d8be;box-shadow:0 2px 6px #344c3510}
+.overview-icon{background:#cedfc2}
+.progress-track{background:#c9d8c0}
+.progress-track>div{background:#427443}
+.list-toolbar{background:#fff;border:1px solid #d2dbe3;border-radius:9px;padding:8px 10px;margin-bottom:8px}
+.tabs .active{background:#e2ebdc}
+.search{border-color:#c7d2dc}
+.column-labels{padding-top:18px;padding-bottom:12px}
+#task-list{border-color:#c8d3dc;box-shadow:0 3px 10px #29384a12}
+#task-list .task{min-height:84px;padding-left:18px;padding-right:18px}
+#task-list .task:hover{background:#f1f6ef}
+.task-check{border-color:#839681}
+.sidebar-note{background:#e8efe2;border-color:#cbd8c3}
+.nav-item.selected{background:#cddcc6;color:#26472f}
+.nav-item:hover{background:#d2dfd0}
+.selected .count{background:#becfb6}
+.topbar,.eyebrow,.subtitle,.column-labels,.task-meta,.progress-details,.sidebar-note p,.workspace-label,.storage-note,.bottom-note,.list-footer{color:#536253}
+.tabs button,.nav-item{color:#465749}
+.tabs .active{color:#2e5037}
+.empty-state p{color:#56665a}
+.text-button{color:#2f6842}
+.avatar{color:#324f36}
+.priority{color:#43553f}
+.priority.high{color:#854719}
+.priority.low{color:#3f596f}
+@media(max-width:720px){
+  .sidebar{background:#dce5dc}
+  main{background:#edf1f5}
+  .list-toolbar{margin-bottom:8px}
+}
