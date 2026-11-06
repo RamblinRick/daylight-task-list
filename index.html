@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f3">
+    <title>Daylight — Your tasks, a little lighter</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23356b50'/%3E%3Cpath d='m17 33 10 10 21-23' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="Daylight home"><span class="sun" aria-hidden="true">✳</span> daylight<span class="brand-dot">.</span></a>
+      <p class="workspace-label">YOUR WORKSPACE</p>
+      <nav aria-label="Task views">
+        <button class="nav-item selected" data-view="all" aria-current="page"><span class="nav-icon" aria-hidden="true">▤</span> All tasks <span class="count" id="all-count">0</span></button>
+        <button class="nav-item" data-view="today"><span class="nav-icon" aria-hidden="true">☀</span> Today <span class="count" id="today-count">0</span></button>
+        <button class="nav-item" data-view="completed"><span class="nav-icon" aria-hidden="true">✓</span> Completed <span class="count" id="completed-count">0</span></button>
+      </nav>
+      <div class="sidebar-note"><span aria-hidden="true">✧</span><strong>Small steps. Real progress.</strong><p>A little focus goes a long way.<br>Make room for what matters.</p></div>
+      <div class="storage-note"><span class="status-dot"></span> Saved on this browser</div>
+    </aside>
+
+    <main>
+      <header class="topbar"><span>Personal workspace <span class="slash">/</span> <strong>My tasks</strong></span><span class="avatar" aria-label="Personal workspace">You</span></header>
+      <section class="content">
+        <div class="page-heading"><div><p class="eyebrow" id="date-label"></p><h1 id="page-title">A little more organized.</h1><p class="subtitle" id="page-subtitle">Clear your mind. Make a list. Take it one task at a time.</p></div><button class="primary" id="add-task"><span aria-hidden="true">+</span> New task</button></div>
+        <div id="storage-error" class="error" role="alert" hidden></div>
+        <section class="overview" aria-label="Task progress">
+          <div class="overview-icon" aria-hidden="true">↗</div><div class="overview-copy"><strong id="progress-title">A fresh start</strong><span id="progress-description">Your next small step starts here.</span></div><div class="progress-details"><span id="progress-label">0 of 0 completed</span><div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div></div>
+        </section>
+        <div class="list-toolbar"><div class="tabs" role="group" aria-label="Filter tasks"><button data-filter="all" class="active" aria-pressed="true">All <span id="visible-count">0</span></button><button data-filter="active" aria-pressed="false">To do</button><button data-filter="completed" aria-pressed="false">Done</button></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search tasks..." aria-label="Search tasks"></label></div>
+        <div class="column-labels" aria-hidden="true"><span>TASK</span><span>DETAILS</span></div>
+        <ul id="task-list" aria-label="Tasks"></ul>
+        <div class="empty-state" id="empty-state"><div class="empty-icon" aria-hidden="true">✓</div><h2 id="empty-title">A clear list, a clear mind.</h2><p id="empty-description">Add your first task and make a little room for progress.</p><button class="text-button" id="empty-add">+ Create your first task</button></div>
+        <footer class="list-footer"><span id="remaining-label">No tasks yet</span><button class="text-button muted" id="clear-completed" hidden>Clear completed</button></footer>
+        <p class="bottom-note"><span aria-hidden="true">✧</span> You don't have to do it all. Just the next thing.</p>
+      </section>
+    </main>
+
+    <dialog id="task-dialog" aria-labelledby="dialog-title">
+      <form id="task-form">
+        <div class="dialog-heading"><h2 id="dialog-title">A new small step</h2><button class="icon-button" type="button" id="close-dialog" aria-label="Close">×</button></div>
+        <p class="dialog-description">Get it out of your head and onto your list.</p>
+        <label class="form-label" for="task-title">Task name</label><input id="task-title" name="title" placeholder="What would you like to get done?" required maxlength="200" autocomplete="off">
+        <div class="form-row"><div><label class="form-label" for="task-date">Due date <span>(optional)</span></label><input id="task-date" name="due" type="date"></div><div><label class="form-label" for="task-priority">Priority</label><select id="task-priority" name="priority"><option value="normal">Normal</option><option value="high">High</option><option value="low">Low</option></select></div></div>
+        <div class="dialog-actions"><button type="button" class="secondary" id="cancel-dialog">Cancel</button><button class="primary" type="submit" id="save-task">Add task</button></div>
+      </form>
+    </dialog>
+    <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  </body>
+</html>
